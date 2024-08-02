@@ -3,15 +3,20 @@ import PlayerInfo from "./components/PlayerInfo";
 import GameBoard from "./components/GameBoard";
 
 function App() {
-  
+  const [activePlayer, setActivePlayer] = useState('X'); 
+
+  function handleSelectSquare(){
+    setActivePlayer((currentActivePlayer) => currentActivePlayer === 'X' ? 'O': 'X'); 
+  }
+
   return (
     <main>
       <div id="game-container">
-        <ol id="players">
-         <PlayerInfo initialName="Player 1" symbol="X"/> 
-         <PlayerInfo initialName="Player 2" symbol="O"/> 
+        <ol id="players" className="highlight-player">
+         <PlayerInfo initialName="Player 1" symbol="X" isActive={activePlayer === 'X'} /> 
+         <PlayerInfo initialName="Player 2" symbol="O" isActive={activePlayer === 'O'} /> 
         </ol>
-        <GameBoard />
+        <GameBoard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer} />
       </div>
 
       LOG
