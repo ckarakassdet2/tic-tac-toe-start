@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PlayerInfo from "./components/PlayerInfo";
+import GameBoard from "./components/GameBoard";
 
 function App() {
   
@@ -10,8 +11,7 @@ function App() {
          <PlayerInfo initialName="Player 1" symbol="X"/> 
          <PlayerInfo initialName="Player 2" symbol="O"/> 
         </ol>
-
-        GAME BOARD
+        <GameBoard />
       </div>
 
       LOG
